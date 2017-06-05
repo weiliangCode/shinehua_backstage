@@ -52,7 +52,8 @@
             </div>
             <div class="layout-content">
                 <div class="layout-content-main">
-                    <Table :columns="columns1" :data="data1"></Table>
+                    <slot>
+				    </slot>
                 </div>
             </div>
         </div>
@@ -65,43 +66,7 @@ export default {
   name: 'Layout',
   data () {
     return {
-      theme2: 'light',
-      columns1: [
-        {
-          title: '姓名',
-          key: 'name'
-        },
-        {
-          title: '年龄',
-          key: 'age'
-        },
-        {
-          title: '地址',
-          key: 'address'
-        }
-      ],
-      data1: [
-        {
-          name: '王小明',
-          age: 18,
-          address: '北京市朝阳区芍药居'
-        },
-        {
-          name: '张小刚',
-          age: 25,
-          address: '北京市海淀区西二旗'
-        },
-        {
-          name: '李小红',
-          age: 30,
-          address: '上海市浦东新区世纪大道'
-        },
-        {
-          name: '周小伟',
-          age: 26,
-          address: '深圳市南山区深南大道'
-        }
-      ]
+      theme2: 'light'
     }
   }
 }
@@ -143,7 +108,8 @@ export default {
 .layout-header{
     width:100%;
     height:@top-height;
-    border-bottom:1px solid #ddd;
+    // border-bottom:1px solid #ddd;
+    box-shadow: 0 1px 1px rgba(0,0,0,.1);
     button{
         margin-top:10px;
     }
