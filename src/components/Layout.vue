@@ -2,38 +2,34 @@
     <div class="layout">
         <div class="layout-menu-left">
             <h1><img src="../assets/logo.png" alt=""></h1>
-            <Menu :theme="theme2">
+            <Menu :theme="theme2" @on-select="onSelect">
                 <Submenu name="1">
                     <template slot="title">
                         <Icon type="ios-paper"></Icon>
-                        内容管理
+                        店铺管理
                     </template>
-                    <Menu-item name="1-1">文章管理</Menu-item>
-                    <Menu-item name="1-2">评论管理</Menu-item>
-                    <Menu-item name="1-3">举报管理</Menu-item>
+                    <Menu-item name="1-1">发布商品</Menu-item>
+                    <Menu-item name="1-2">所有商品</Menu-item>
+                    <Menu-item name="1-3">出售中的商品</Menu-item>
                 </Submenu>
                 <Submenu name="2">
                     <template slot="title">
                         <Icon type="ios-people"></Icon>
-                        用户管理
+                        商城订单管理
                     </template>
-                    <Menu-item name="2-1">新增用户</Menu-item>
-                    <Menu-item name="2-2">活跃用户</Menu-item>
+                    <Menu-item name="2-1" href="/storeOrder">全部订单</Menu-item>
+                    <Menu-item name="2-2">待付款订单</Menu-item>
+                    <Menu-item name="2-3">待发货订单</Menu-item>
+                    <Menu-item name="2-4">待收货订单</Menu-item>
+                    <Menu-item name="2-5">已收货订单</Menu-item>
                 </Submenu>
                 <Submenu name="3">
                     <template slot="title">
-                        <Icon type="stats-bars"></Icon>
-                        统计分析
+                        <Icon type="ios-people"></Icon>
+                        公众号订单
                     </template>
-                    <Menu-group title="使用">
-                        <Menu-item name="3-1">新增和启动</Menu-item>
-                        <Menu-item name="3-2">活跃分析</Menu-item>
-                        <Menu-item name="3-3">时段分析</Menu-item>
-                    </Menu-group>
-                    <Menu-group title="留存">
-                        <Menu-item name="3-4">用户留存</Menu-item>
-                        <Menu-item name="3-5">流失用户</Menu-item>
-                    </Menu-group>
+                    <Menu-item name="3-1">外包订单</Menu-item>
+                    <Menu-item name="3-2">支付对接订单</Menu-item>
                 </Submenu>
             </Menu>
         </div>
@@ -45,8 +41,8 @@
             </div>
             <div class="layout-breadcrumb">
                 <Breadcrumb>
-                    <Breadcrumb-item href="#">首页</Breadcrumb-item>
-                    <Breadcrumb-item href="#">应用中心</Breadcrumb-item>
+                    <Breadcrumb-item href="/">首页</Breadcrumb-item>
+                    <Breadcrumb-item href="/storeOrder">应用中心</Breadcrumb-item>
                     <Breadcrumb-item>某应用</Breadcrumb-item>
                 </Breadcrumb>
             </div>
@@ -67,6 +63,13 @@ export default {
   data () {
     return {
       theme2: 'light'
+    }
+  },
+  methods: {
+    onSelect (name) {
+      console.log(name)
+      if (name === '2-1') {
+      }
     }
   }
 }
