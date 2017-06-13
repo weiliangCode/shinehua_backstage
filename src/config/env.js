@@ -8,13 +8,13 @@
  */
 let baseUrl; 
 let routerMode;
-const imgBaseUrl = 'https://fuss10.elemecdn.com';
+const imgBaseUrl = '';
 
 if (process.env.NODE_ENV == 'development') {
 	baseUrl = '';
 	routerMode = 'hash'
 }else{
-	baseUrl = 'https://mainsite-restapi.ele.me';
+	baseUrl = 'http://demo.lmqde.com/api/';
 	routerMode = 'hash'
 }
 
