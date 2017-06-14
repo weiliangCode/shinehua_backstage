@@ -1,5 +1,5 @@
 <template>
-  <Table :columns="columns1" :data="data"></Table>
+  <Table stripe border :columns="columns1" :data="data"></Table>
 </template>
 
 <script>
@@ -9,8 +9,9 @@ export default {
     return {
       columns1: [
         {
-          title: 'id',
-          key: 'id'
+          title: '创建时间',
+          key: 'created_at',
+          sortable: true
         },
         {
           title: '公司名',
@@ -37,16 +38,45 @@ export default {
           key: 'note'
         },
         {
-          title: '创建时间',
-          key: 'created_at'
-        },
-        {
           title: '更新时间',
           key: 'updated_at'
         },
         {
-          title: 'is_del',
-          key: 'is_del'
+            title: '操作',
+            key: 'action',
+            width: 150,
+            align: 'center',
+            render: (h, params) => {
+                return h('div', [
+                    h('Button', {
+                        props: {
+                            type: 'primary',
+                            size: 'small'
+                        },
+                        style: {
+                            marginRight: '5px'
+                        },
+                        on: {
+                            click: () => {
+                                // this.show(params.index)
+                                console.log('修改');
+                            }
+                        }
+                    }, '修改'),
+                    h('Button', {
+                        props: {
+                            type: 'error',
+                            size: 'small'
+                        },
+                        on: {
+                            click: () => {
+                                // this.remove(params.index)
+                                console.log('删除');
+                            }
+                        }
+                    }, '删除')
+                ]);
+            }
         }
       ],
       data: []

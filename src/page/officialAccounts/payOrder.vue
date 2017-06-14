@@ -9,10 +9,6 @@ export default {
     return {
       columns1: [
         {
-          title: 'id',
-          key: 'id'
-        },
-        {
           title: '公司名',
           key: 'name'
         },
@@ -35,10 +31,6 @@ export default {
         {
           title: '更新时间',
           key: 'updated_at'
-        },
-        {
-          title: 'is_del',
-          key: 'is_del'
         }
       ],
       data: []

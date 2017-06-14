@@ -101,6 +101,10 @@ export default {
             margin:0 auto;
         }
     }
+    ul{
+        background:rgb(50, 64, 78);
+        color:#adb3b8;
+    }
 }
 
 .layout-right{
@@ -113,8 +117,12 @@ export default {
     height:@top-height;
     // border-bottom:1px solid #ddd;
     box-shadow: 0 1px 1px rgba(0,0,0,.1);
+    background:rgb(50, 64, 78);
     button{
         margin-top:10px;
+    }
+    .ivu-btn-text{
+        color:#adb3b8;
     }
 }
 
