@@ -1,8 +1,8 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
-import routes from './router/router'
+// import VueRouter from 'vue-router'
+import router from './router/router'
 import store from './store/'
-import {routerMode} from './config/env'
+// import {routerMode} from './config/env'
 import './config/rem'
 import FastClick from 'fastclick'
 import iView from 'iview'
@@ -16,12 +16,12 @@ if ('addEventListener' in document) {
     }, false);
 }
 
-Vue.use(VueRouter)
-const router = new VueRouter({
-	routes,
-	mode: routerMode,
-	strict: process.env.NODE_ENV !== 'production'
-})
+// Vue.use(VueRouter)
+// const router = new VueRouter({
+// 	routes,
+// 	mode: routerMode,
+// 	strict: process.env.NODE_ENV !== 'production'
+// })
 
 
 new Vue({

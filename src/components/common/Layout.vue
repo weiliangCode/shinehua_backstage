@@ -8,28 +8,28 @@
                         <Icon type="ios-paper"></Icon>
                         店铺管理
                     </template>
-                    <Menu-item name="1-1">发布商品</Menu-item>
-                    <Menu-item name="1-2">所有商品</Menu-item>
-                    <Menu-item name="1-3">出售中的商品</Menu-item>
+                    <Menu-item name="issueGoods">发布商品</Menu-item>
+                    <Menu-item name="allGoods">所有商品</Menu-item>
+                    <Menu-item name="sellGoods">出售中的商品</Menu-item>
                 </Submenu>
                 <Submenu name="2">
                     <template slot="title">
                         <Icon type="ios-people"></Icon>
                         商城订单管理
                     </template>
-                    <Menu-item name="2-1" href="/storeOrder">全部订单</Menu-item>
-                    <Menu-item name="2-2">待付款订单</Menu-item>
-                    <Menu-item name="2-3">待发货订单</Menu-item>
-                    <Menu-item name="2-4">待收货订单</Menu-item>
-                    <Menu-item name="2-5">已收货订单</Menu-item>
+                    <Menu-item name="allOrder" >全部订单</Menu-item>
+                    <Menu-item name="Order0">待付款订单</Menu-item>
+                    <Menu-item name="Order1">待发货订单</Menu-item>
+                    <Menu-item name="Order2">待收货订单</Menu-item>
+                    <Menu-item name="Order3">已收货订单</Menu-item>
                 </Submenu>
                 <Submenu name="3">
                     <template slot="title">
                         <Icon type="ios-people"></Icon>
                         公众号订单
                     </template>
-                    <Menu-item name="3-1">外包订单</Menu-item>
-                    <Menu-item name="3-2">支付对接订单</Menu-item>
+                    <Menu-item name="projectOrder">外包订单</Menu-item>
+                    <Menu-item name="payOrder">支付对接订单</Menu-item>
                 </Submenu>
             </Menu>
         </div>
@@ -57,6 +57,7 @@
 </template>
 
 <script>
+import routes from '../../router/router'
 export default {
   name: 'Layout',
   data () {
@@ -66,9 +67,7 @@ export default {
   },
   methods: {
     onSelect (name) {
-      console.log(name)
-      if (name === '2-1') {
-      }
+      routes.push(name)
     }
   }
 }
@@ -88,8 +87,10 @@ export default {
 
 .layout-menu-left{
     width:@menu-width;
-    height:100%;
+    // height:100%;
     border-right:1px solid #ddd;
+    background:rgb(50, 64, 78);
+    height:800px;
     h1{
         width:100%;
         height:@top-height;
@@ -128,8 +129,8 @@ export default {
 
 .layout-content{
     width:100%;
-    height:500px;
-    background:pink;
+    // height:500px;
+    // background:pink;
 }
 
 </style>

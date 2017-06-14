@@ -51,8 +51,13 @@ server.use(proxyMiddleware('/api', {
     changeOrigin: true,
 }))
 
-server.use(proxyMiddleware('/m.ele.me@json', {
-    target: 'http://demo.lmqde.com/api/',
+server.use(proxyMiddleware('/company', {
+    target: 'http://demo.lmqde.com',
+    changeOrigin: true,
+}))
+
+server.use(proxyMiddleware('/visitor', {
+    target: 'http://demo.lmqde.com',
     changeOrigin: true,
 }))
 
