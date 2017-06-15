@@ -4,17 +4,65 @@
             <i-col :span="spanLeft" class="layout-menu-left">
                 <Menu active-name="activeName" :theme="theme" width="auto" @on-select="onSelect">
                     <div class="layout-logo-left"></div>
-                    <Submenu :name="index" v-for="(item,index) in menuData">
+                    <Submenu name="1">
                         <template slot="title">
-                            <Icon :type="item.icon"></Icon>
-                            <span class="layout-text">{{item.title}}</span>
+                            <Icon type="icecream"></Icon>
+                            <span class="layout-text">店铺管理</span>
                         </template>
-                        <Menu-item :name="obj.name" v-for="obj in item.subtitle">
-                            <Icon :type="obj.icon"></Icon>
-                            <span class="layout-text">{{obj.title}}</span>
+                        <Menu-item name="issueGoods">
+                            <Icon type="android-arrow-dropup-circle"></Icon>
+                            <span class="layout-text">发布商品</span>
+                        </Menu-item>
+                        <Menu-item name="allGoods">
+                            <Icon type="ios-paper"></Icon>
+                            <span class="layout-text">所有商品</span>
+                        </Menu-item>
+                        <Menu-item name="sellGoods">
+                            <Icon type="android-contacts"></Icon>
+                            <span class="layout-text">出售中的商品</span>
                         </Menu-item>
                     </Submenu>
-                 </Menu>
+                    <Submenu name="2">
+                        <template slot="title">
+                            <Icon type="ios-cart"></Icon>
+                            <span class="layout-text">商城订单管理</span> 
+                        </template>
+                        <Menu-item name="allOrder">
+                            <Icon type="ios-paper"></Icon>
+                            <span class="layout-text">全部订单</span>
+                        </Menu-item>
+                        <Menu-item name="Order0"> 
+                            <Icon type="ios-paper"></Icon>
+                            <span class="layout-text">待付款订单</span>
+                        </Menu-item>
+                        <Menu-item name="Order1">
+                            <Icon type="ios-paper"></Icon>
+                            <span class="layout-text">待发货订单</span>
+                        </Menu-item>
+                        <Menu-item name="Order2">
+                            <Icon type="ios-paper"></Icon>
+                            <span class="layout-text">待收货订单</span>
+                        </Menu-item>
+                        <Menu-item name="Order3">
+                            <Icon type="ios-paper"></Icon>
+                            <span class="layout-text">已收货订单</span>
+                        </Menu-item>
+                    </Submenu>
+                    <Submenu name="3">
+                        <template slot="title">
+                            <Icon type="chatbubbles"></Icon>
+                            <span class="layout-text">公众号订单</span>
+                        </template>
+                        <Menu-item name="projectOrder">
+                            <Icon type="android-laptop"></Icon>
+                            <span class="layout-text">外包订单</span>
+                        </Menu-item>
+                        <Menu-item name="payOrder">
+                            <Icon type="social-usd-outline"></Icon>
+                            <span class="layout-text">支付对接订单</span>
+                        </Menu-item>
+                    </Submenu>
+                </Menu>
             </i-col>
             <i-col :span="spanRight">
                 <div class="layout-header">
@@ -51,8 +99,18 @@ import hTag from './hTag'
                 activeName: '',
                 spanLeft: 5,
                 spanRight: 19,
-                list: [],
-                menuData: [{
+                list: [
+                    {
+                        "title": "首页",
+                        "routerPath": "/"
+                    },
+                    {
+                        "title": "全部订单",
+                        "routerPath": "allOrder"
+                    }
+                ],
+                menuData: [
+                {
                     "title": "店铺管理",
                     "icon": "icecream",
                     "subtitle": {
@@ -80,7 +138,7 @@ import hTag from './hTag'
                         "allOrder" :{
                             "name": "allOrder",
                             "title": "全部订单",
-                            "icon": "ios-cart"
+                            "icon": "layout-text"
                         },
                         "Order0" :{
                             "name": "Order0",
@@ -90,17 +148,17 @@ import hTag from './hTag'
                         "Order1" :{
                             "name": "Order1",
                             "title": "待发货订单",
-                            "icon": "ios-cart"
+                            "icon": "layout-text"
                         },
                         "Order2" :{
                             "name": "Order2",
                             "title": "待收货订单",
-                            "icon": "ios-cart"
+                            "icon": "layout-text"
                         },
                         "Order3" :{
                             "name": "Order3",
                             "title": "已收货订单",
-                            "icon": "ios-cart"
+                            "icon": "layout-text"
                         }
                     }
                 },
@@ -120,6 +178,7 @@ import hTag from './hTag'
                         }
                     }
                 }
+
                 ]
             }
         },
@@ -132,16 +191,8 @@ import hTag from './hTag'
             onSelect (name) {
               routes.push(name);
               this.activeName = name;
-              let title = '';
-              for(let i in this.menuData) {
-                  let obj = this.menuData[i];
-                  if(obj.subtitle[name]){
-                      title = obj.subtitle[name].title;
-                      break;
-                  }
-              }
               let obj = {
-                  title: title,
+                  title: '首页',
                   routerPath: name
               }
               this.list.push(obj);

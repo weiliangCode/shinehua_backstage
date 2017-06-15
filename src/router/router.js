@@ -5,11 +5,22 @@ import {routerMode} from '../config/env'
 Vue.use(VueRouter)
 
 const home = r => require.ensure([], () => r(require('../page/home/home')), 'home')
-const allOrder = r => require.ensure([], () => r(require('../page/storeOrder/all')), 'allOrder')
+const login = r => require.ensure([], () => r(require('../page/login/login')), 'login')
+
+const issueGoods = r => require.ensure([], () => r(require('../page/goods/issueGoods')), 'issueGoods')
+const allGoods = r => require.ensure([], () => r(require('../page/goods/allGoods')), 'allGoods')
+const sellGoods = r => require.ensure([], () => r(require('../page/goods/sellGoods')), 'sellGoods')
+
+const allOrder = r => require.ensure([], () => r(require('../page/order/allorder')), 'allOrder')
+const order0 = r => require.ensure([], () => r(require('../page/order/order0')), 'order0')
+const order1 = r => require.ensure([], () => r(require('../page/order/order1')), 'order1')
+const order2 = r => require.ensure([], () => r(require('../page/order/order2')), 'order2')
+const order3 = r => require.ensure([], () => r(require('../page/order/order3')), 'order3')
+
 const projectOrder = r => require.ensure([], () => r(require('../page/officialAccounts/projectOrder')), 'projectOrder')
 const payOrder = r => require.ensure([], () => r(require('../page/officialAccounts/payOrder')), 'payOrder')
-const login = r => require.ensure([], () => r(require('../page/login/login')), 'login')
-const issueGoods = r => require.ensure([], () => r(require('../page/goods/issueGoods')), 'issueGoods')
+
+
 
 
 export default new VueRouter({
@@ -24,10 +35,46 @@ export default new VueRouter({
             {
                 path: '/',
                 component: home,
-                children: [{
+                children: [
+                {
+                    path: 'issueGoods',
+                    name: 'issueGoods',
+                    component: issueGoods
+                },
+                {
+                    path: 'allGoods',
+                    name: 'allGoods',
+                    component: allGoods
+                },
+                {
+                    path: 'sellGoods',
+                    name: 'sellGoods',
+                    component: sellGoods
+                },
+                {
                     path: 'allOrder',
                     name: 'allOrder',
                     component: allOrder
+                },
+                {
+                    path: 'order0',
+                    name: 'order0',
+                    component: order0
+                },
+                {
+                    path: 'order1',
+                    name: 'order1',
+                    component: order1
+                },
+                {
+                    path: 'order2',
+                    name: 'order2',
+                    component: order2
+                },
+                {
+                    path: 'order3',
+                    name: 'order3',
+                    component: order3
                 },
                 {
                     path: 'projectOrder',
@@ -38,11 +85,6 @@ export default new VueRouter({
                     path: 'payOrder',
                     name: 'payOrder',
                     component: payOrder
-                },
-                {
-                    path: 'issueGoods',
-                    name: 'issueGoods',
-                    component: issueGoods
                 }
                 ]
             },

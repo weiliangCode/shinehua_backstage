@@ -11,12 +11,7 @@
         title="修改"
         v-model="modal1"
         class-name="vertical-center-modal">
-        <div>
-            <Input  placeholder="请输入"></Input>
-            <Input-number  :min="0" ></Input-number>
-            <Input-number  :min="0" ></Input-number>
-            <Input-number  :min="0" ></Input-number>
-        </div>
+        <Table :columns="columns1" :data="data1"></Table>
     </Modal>
   </div>
 </template>
@@ -28,6 +23,18 @@ export default {
     return {
       modal: false,
       modal1: false,
+      columns1: [
+          {
+            title: '创建时间',
+            key: 'created_at',
+            sortable: true
+        },
+      ],
+      data1: [
+            {
+                created_at: "2015-06-05"
+            }
+      ],
       columns: [
         {
           title: '创建时间',
