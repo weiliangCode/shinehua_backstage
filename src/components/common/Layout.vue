@@ -1,8 +1,9 @@
 <template>
     <div class="layout">
-        <div class="layout-menu-left">
+
+            <div class="layout-menu-left">
             <h1><img src="../../images/logo.png" alt=""></h1>
-            <Menu :theme="theme2" @on-select="onSelect">
+            <Menu :theme="theme2" active-name="activeName" @on-select="onSelect">
                 <Submenu name="1">
                     <template slot="title">
                         <Icon type="ios-paper"></Icon>
@@ -52,7 +53,7 @@
                 </div>
             </div>
         </div>
-        
+      
     </div>
 </template>
 
@@ -62,13 +63,15 @@ export default {
   name: 'Layout',
   data () {
     return {
-      theme2: 'light'
+      theme2: 'light',
+      activeName: '',
     }
   },
   methods: {
     onSelect (name) {
-      routes.push(name)
-    }
+      routes.push(name);
+      this.activeName = name;
+    },
   }
 }
 </script>
@@ -87,10 +90,9 @@ export default {
 
 .layout-menu-left{
     width:@menu-width;
-    // height:100%;
+    height:100%;
     border-right:1px solid #ddd;
     background:rgb(50, 64, 78);
-    height:800px;
     h1{
         width:100%;
         height:@top-height;
@@ -103,6 +105,9 @@ export default {
     }
     ul{
         background:rgb(50, 64, 78);
+        color:#adb3b8;
+    }
+    .ivu-menu-submenu-title{
         color:#adb3b8;
     }
 }

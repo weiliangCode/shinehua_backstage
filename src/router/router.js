@@ -9,6 +9,7 @@ const allOrder = r => require.ensure([], () => r(require('../page/storeOrder/all
 const projectOrder = r => require.ensure([], () => r(require('../page/officialAccounts/projectOrder')), 'projectOrder')
 const payOrder = r => require.ensure([], () => r(require('../page/officialAccounts/payOrder')), 'payOrder')
 const login = r => require.ensure([], () => r(require('../page/login/login')), 'login')
+const issueGoods = r => require.ensure([], () => r(require('../page/goods/issueGoods')), 'issueGoods')
 
 
 export default new VueRouter({
@@ -37,6 +38,11 @@ export default new VueRouter({
                     path: 'payOrder',
                     name: 'payOrder',
                     component: payOrder
+                },
+                {
+                    path: 'issueGoods',
+                    name: 'issueGoods',
+                    component: issueGoods
                 }
                 ]
             },

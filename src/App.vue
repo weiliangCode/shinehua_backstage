@@ -14,8 +14,8 @@
 
 </script>
 
-<style lang="scss">
-  	// @import './style/common';
+<style lang="less">
+  	@import './style/commin';
 	// .router-fade-enter-active, .router-fade-leave-active {
 	//   	transition: opacity .3s;
 	// }
