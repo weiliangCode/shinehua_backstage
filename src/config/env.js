@@ -14,7 +14,7 @@ if (process.env.NODE_ENV == 'development') {
 	baseUrl = '';
 	routerMode = 'hash'
 }else{
-	baseUrl = 'http://demo.lmqde.com/api/';
+	baseUrl = 'http://demo.lmqde.com';
 	routerMode = 'hash'
 }
 
