@@ -13,6 +13,7 @@
                             <Icon :type="obj.icon"></Icon>
                             <span class="layout-text">{{obj.title}}</span>
                         </Menu-item>
+                
                     </Submenu>
                  </Menu>
             </i-col>
@@ -22,13 +23,15 @@
                         <Icon type="navicon" size="32"></Icon>
                     </i-button>
                 </div>
-
-                <div class="layout-content">
-                    <Tabs type="card" closable >
-                        <Tab-pane label="标签一" ><slot></slot></Tab-pane>
-                    </Tabs>
+                <div class="layout-breadcrumb">
+                    <hTag v-for="(item,index) in list" :title="item.title" @on-close="closeTag(index)" :routerPath="item.routerPath">
+                    </hTag>
                 </div>
-
+                <div class="layout-content">
+                    <div class="layout-content-main">
+                      <slot></slot>
+                    </div>
+                </div>
                 <div class="layout-copy">
                     2011-2016 &copy; TalkingData
                 </div>

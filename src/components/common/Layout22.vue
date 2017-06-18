@@ -22,15 +22,13 @@
                         <Icon type="navicon" size="32"></Icon>
                     </i-button>
                 </div>
-                <div class="layout-breadcrumb">
-                    <hTag v-for="(item,index) in list" :title="item.title" @on-close="closeTag(index)" :routerPath="item.routerPath">
-                    </hTag>
-                </div>
+
                 <div class="layout-content">
-                    <div class="layout-content-main">
-                      <slot></slot>
-                    </div>
+                    <Tabs type="card" closable >
+                        <Tab-pane :label="item.title"  v-for="item in pageList"><slot :name="item.name"></slot></Tab-pane>
+                    </Tabs>
                 </div>
+
                 <div class="layout-copy">
                     2011-2016 &copy; TalkingData
                 </div>
@@ -44,6 +42,12 @@ import hTag from './hTag'
     export default {
         components: {
             hTag
+        },
+        props: {
+            pageList: {
+                type: Array,
+                default: []
+            }
         },
         data () {
             return {

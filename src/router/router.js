@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import {routerMode} from '../config/env'
 Vue.use(VueRouter)
 
+const basis = r => require.ensure([], () => r(require('../page/basis/basis')), 'basis')
 const home = r => require.ensure([], () => r(require('../page/home/home')), 'home')
 const login = r => require.ensure([], () => r(require('../page/login/login')), 'login')
 
@@ -34,8 +35,13 @@ export default new VueRouter({
             //首页城市列表页
             {
                 path: '/',
-                component: home,
+                component: basis,
                 children: [
+                {
+                    path: 'home',
+                    name: 'home',
+                    component: home
+                },
                 {
                     path: 'issueGoods',
                     name: 'issueGoods',
@@ -93,7 +99,7 @@ export default new VueRouter({
                 path: '/login',
                 component: login,
             },
-            { path: '*', redirect: '/' }
+            { path: '*', redirect: '/home' }
         ]
     }]
 })
