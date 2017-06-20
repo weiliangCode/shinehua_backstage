@@ -7,7 +7,6 @@
 <script>
 import echarts from 'echarts'
 // import echarts from 'chart/line'
-import data from './data.json'
 export default {
     data() {
       return {

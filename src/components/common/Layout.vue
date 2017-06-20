@@ -3,7 +3,9 @@
         <Row type="flex">
             <i-col :span="spanLeft" class="layout-menu-left">
                 <Menu active-name="activeName" :theme="theme" width="auto" @on-select="onSelect">
-                    <div class="layout-logo-left"></div>
+                    <div class="layout-logo-left">
+                        <img src="../../images/logo.png" alt="">
+                    </div>
                     <Submenu :name="index" v-for="(item,index) in menuData">
                         <template slot="title">
                             <Icon :type="item.icon"></Icon>
@@ -13,7 +15,6 @@
                             <Icon :type="obj.icon"></Icon>
                             <span class="layout-text">{{obj.title}}</span>
                         </Menu-item>
-                
                     </Submenu>
                  </Menu>
             </i-col>
@@ -21,6 +22,9 @@
                 <div class="layout-header">
                     <i-button type="text" @click="toggleClick">
                         <Icon type="navicon" size="32"></Icon>
+                    </i-button>
+                    <i-button type="text" @click="logOut" class="right">
+                        <Icon type="log-out" size="32" ></Icon>
                     </i-button>
                 </div>
                 <div class="layout-breadcrumb">
@@ -42,6 +46,7 @@
 <script>
 import routes from '../../router/router'
 import hTag from './hTag'
+import menuData from '../../data/menuData'
     export default {
         components: {
             hTag
@@ -53,75 +58,7 @@ import hTag from './hTag'
                 spanLeft: 5,
                 spanRight: 19,
                 list: [],
-                menuData: [{
-                    "title": "店铺管理",
-                    "icon": "icecream",
-                    "subtitle": {
-                        "issueGoods" :{
-                            "name": "issueGoods",
-                            "title": "发布商品",
-                            "icon": "android-arrow-dropup-circle"
-                        },
-                        "allGoods" :{
-                            "name": "allGoods",
-                            "title": "所有商品",
-                            "icon": "ios-paper"
-                        },
-                        "sellGoods" :{
-                            "name": "sellGoods",
-                            "title": "出售中的商品",
-                            "icon": "android-contacts"
-                        }
-                    }
-                },
-                {
-                    "title": "商城订单管理",
-                    "icon": "ios-cart",
-                    "subtitle": {
-                        "allOrder" :{
-                            "name": "allOrder",
-                            "title": "全部订单",
-                            "icon": "ios-cart"
-                        },
-                        "Order0" :{
-                            "name": "Order0",
-                            "title": "待付款订单",
-                            "icon": "ios-paper"
-                        },
-                        "Order1" :{
-                            "name": "Order1",
-                            "title": "待发货订单",
-                            "icon": "ios-cart"
-                        },
-                        "Order2" :{
-                            "name": "Order2",
-                            "title": "待收货订单",
-                            "icon": "ios-cart"
-                        },
-                        "Order3" :{
-                            "name": "Order3",
-                            "title": "已收货订单",
-                            "icon": "ios-cart"
-                        }
-                    }
-                },
-                {
-                    "title": "公众号订单",
-                    "icon": "chatbubbles",
-                    "subtitle": {
-                        "projectOrder" :{
-                            "name": "projectOrder",
-                            "title": "外包订单",
-                            "icon": "android-laptop"
-                        },
-                        "payOrder" :{
-                            "name": "payOrder",
-                            "title": "支付对接订单",
-                            "icon": "social-usd-outline"
-                        }
-                    }
-                }
-                ]
+                menuData: menuData
             }
         },
         computed: {
@@ -156,6 +93,9 @@ import hTag from './hTag'
                     this.spanRight = 19;
                 }
             },
+            logOut () {
+                console.log('安全退出')
+            },
             closeTag (index) {
                 this.list.splice(index, 1);
             }
@@ -163,7 +103,7 @@ import hTag from './hTag'
     }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
     .layout{
         border: 1px solid #d7dde4;
         background: #f5f7f9;
@@ -192,21 +132,34 @@ import hTag from './hTag'
         text-align: center;
         padding: 10px 0 20px;
         color: #9ea7b4;
+        position: fixed;
+        bottom:0;
+        left:0;
+        width:100%;
     }
     .layout-menu-left{
-        background: #464c5b;
+        // background: #464c5b;
+        background: #1c2438;
     }
     .layout-header{
         height: 60px;
         background: #fff;
         box-shadow: 0 1px 1px rgba(0,0,0,.1);
+        button{
+            margin-top:5px;
+        }
     }
     .layout-logo-left{
-        width: 90%;
-        height: 30px;
-        background: #5b6270;
-        border-radius: 3px;
-        margin: 15px auto;
+        width: 100%;
+        height: 60px;
+        background: #28B779;
+        // background:#fff;
+        // border-radius: 3px;
+        margin: 0 auto;
+        img{
+            height:60px;
+            margin: 0 auto;
+        }
     }
     .layout-ceiling-main a{
         color: #9ba7b5;
